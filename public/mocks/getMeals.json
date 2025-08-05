@@ -1,0 +1,52 @@
+{
+  "meals": [
+    {
+      "title": "Beef Dumpling Soup",
+      "price": 3.99,
+      "qty": 15,
+      "img": "images/meals/beef_dumpling.png"
+    },
+    {
+      "title": "Healthy Veggie Noodle",
+      "price": 2.49,
+      "qty": 25,
+      "img": "images/meals/healthy_noodle.png"
+    },
+    {
+      "title": "Instant Noodle Classic",
+      "price": 1.89,
+      "qty": 40,
+      "img": "images/meals/instant_noodle.png"
+    },
+    {
+      "title": "Miso Soup Bowl",
+      "price": 2.15,
+      "qty": 18,
+      "img": "images/meals/miso_soup.png"
+    },
+    {
+      "title": "Classic Noodles",
+      "price": 2.0,
+      "qty": 30,
+      "img": "images/meals/noodle.png"
+    },
+    {
+      "title": "Pasta with Mushrooms",
+      "price": 3.59,
+      "qty": 22,
+      "img": "images/meals/pasta_mushroom.png"
+    },
+    {
+      "title": "Spicy Ramen Delight",
+      "price": 2.79,
+      "qty": 10,
+      "img": "images/meals/spicy_ramen.png"
+    },
+    {
+      "title": "Spicy Seasoned Seafood Noodles",
+      "price": 2.29,
+      "qty": 20,
+      "img": "images/meals/spicy_seasoned_noodles.png"
+    }
+  ]
+}
