@@ -13,7 +13,7 @@ const MealList = () => {
     <div className="p-7">
       <div className="w-full flex justify-between items-center mb-10">
         <div>
-          <h1>Jaegar Resto</h1>
+          <h1 className="text-3xl font-semibold">Jaegar Resto</h1>
           <h2>Tuesday, 2 Feb 2025</h2>
         </div>
         <div>
@@ -21,7 +21,7 @@ const MealList = () => {
         </div>
       </div>
       <div>
-        <h3>Choose Dishes</h3>
+        <h3 className="text-xl font-semibold">Choose Dishes</h3>
         <SelectBox />
       </div>
       {!isLoading && !isError && (
