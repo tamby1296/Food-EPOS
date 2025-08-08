@@ -5,7 +5,7 @@ function App() {
   return (
     <main className="flex pl-[100px]">
       <Navigation />
-      <div className="p-7 flex-1">
+      <div className="flex-1">
         <Outlet />
       </div>
     </main>
