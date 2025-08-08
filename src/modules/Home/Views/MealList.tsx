@@ -2,6 +2,7 @@ import MealCard from "@/components/MealCard";
 import SelectBox from "@/components/SelectBox";
 import { getAllMeals } from "@/services/meals";
 import { useQuery } from "@tanstack/react-query";
+import { MealOptions } from "../Constants/Options";
 
 const MealList = () => {
   const { data, isLoading, isError } = useQuery({
@@ -20,9 +21,9 @@ const MealList = () => {
           <input />
         </div>
       </div>
-      <div>
+      <div className="w-full flex items-center justify-between">
         <h3 className="text-xl font-semibold">Choose Dishes</h3>
-        <SelectBox />
+        <SelectBox options={MealOptions} />
       </div>
       {!isLoading && !isError && (
         <div className="flex flex-wrap justify-evenly">

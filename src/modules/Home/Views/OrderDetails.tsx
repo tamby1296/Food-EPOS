@@ -1,20 +1,7 @@
 import OrderLine from "@/components/OrderLine";
 import RadioButton from "@/components/RadioButton";
 
-const MealOptions = [
-  {
-    label: "Dine In",
-    value: "dine-in",
-  },
-  {
-    label: "To Go",
-    value: "to-go",
-  },
-  {
-    label: "Delivery",
-    value: "delivery",
-  },
-];
+import { MealOptions } from "../Constants/Options";
 
 const OrderDetails = () => {
   return (

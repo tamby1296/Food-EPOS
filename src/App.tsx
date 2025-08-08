@@ -3,7 +3,7 @@ import Navigation from "./components/Navigation";
 
 function App() {
   return (
-    <main className="flex pl-[100px]">
+    <main className="flex pl-[100px] min-h-[100vh]">
       <Navigation />
       <div className="flex-1">
         <Outlet />
