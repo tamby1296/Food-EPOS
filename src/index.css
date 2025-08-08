@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-Regular.woff2') format('woff2'),
+        url('/fonts/Barlow-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('/fonts/Barlow-Bold.woff2') format('woff2'),
+        url('/fonts/Barlow-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
   --kAppWhite: #FFFFFF;
   --kAppDarkNavy: #1F1D2B;
@@ -11,7 +29,6 @@
   --kAppSlate: #2D303E;
   --kAppLightGray: #E0E6E9;
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -63,3 +80,4 @@ input:focus {
     background-color: #f9f9f9;
   }
 }
+

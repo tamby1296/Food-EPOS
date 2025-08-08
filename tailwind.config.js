@@ -19,5 +19,11 @@ export default {
       kAppSlate: "#2D303E",
       kAppLightGray: "#E0E6E9",
     },
+    extend: {
+      fontFamily: {
+        sans: ["Barlow", ...defaultTheme.fontFamily.sans],
+        heading: ["Barlow", ...defaultTheme.fontFamily.serif],
+      },
+    },
   },
 };
