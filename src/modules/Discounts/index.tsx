@@ -1,5 +1,9 @@
-const index = () => {
-  return <div>Discounts</div>;
+const DiscountScreen = () => {
+  return <div>DiscountScreen</div>;
 };
 
-export default index;
+export { DiscountScreen };
+
+export function Component() {
+  return <DiscountScreen />;
+}

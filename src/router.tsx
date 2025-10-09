@@ -1,10 +1,5 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
-import HomeScreen from "@modules/Home";
-import DiscountScreen from "@modules/Discounts";
-import DashboardScreen from "@modules/Dashboard";
-import NotificationScreen from "@/modules/Notifications";
-import SettingsScreen from "@modules/Settings";
 
 const router = createBrowserRouter([
   {
@@ -15,27 +10,27 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        element: <HomeScreen />,
+        lazy: () => import("@modules/Home"),
       },
       {
         index: true,
         path: "/discounts",
-        element: <DiscountScreen />,
+        lazy: () => import("@modules/Discounts"),
       },
       {
         index: true,
         path: "/dashboard",
-        element: <DashboardScreen />,
+        lazy: () => import("@modules/Dashboard"),
       },
       {
         index: true,
         path: "/notifications",
-        element: <NotificationScreen />,
+        lazy: () => import("@modules/Notifications"),
       },
       {
         index: true,
         path: "/settings",
-        element: <SettingsScreen />,
+        lazy: () => import("@modules/Settings"),
       },
     ],
   },

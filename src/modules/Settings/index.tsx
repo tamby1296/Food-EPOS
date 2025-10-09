@@ -1,5 +1,9 @@
-const index = () => {
-  return <div>Settings</div>;
+const SettingsScreen = () => {
+  return <div>SettingsScreen</div>;
 };
 
-export default index;
+export { SettingsScreen };
+
+export function Component() {
+  return <SettingsScreen />;
+}
