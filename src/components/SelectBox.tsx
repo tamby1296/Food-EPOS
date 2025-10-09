@@ -23,8 +23,8 @@ interface ISelectBoxProps {
 const SelectBox: React.FC<ISelectBoxProps> = ({ options }) => {
   return (
     <Root defaultValue={options[0].value}>
-      <Trigger className="p-3 rounded-lg flex items-center gap-3 bg-kAppDarkNavy border border-kAppCharcoal focus:outline-none">
-        <Icon>
+      <Trigger className="p-4 rounded-lg flex items-center gap-3 bg-kAppDarkNavy border border-kAppCharcoal focus:outline-none">
+        <Icon className="flex items-center justify-center w-5 h-5">
           <ChevronIcon />
         </Icon>
         <Value placeholder="Select an option" />

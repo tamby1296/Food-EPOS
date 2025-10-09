@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface IMealCardProps {
   title?: string;
@@ -8,17 +8,38 @@ interface IMealCardProps {
 }
 
 const MealCard: React.FC<IMealCardProps> = ({ title, price, qty, img }) => {
+  const [paddingTop, setPaddingTop] = useState(0);
+  const imgRef = useRef(null);
+
+  const calculatePaddingTop = () => {
+    if (!imgRef.current) return;
+    setPaddingTop((imgRef.current as HTMLElement).offsetHeight - 50);
+  };
+
+  useEffect(() => {
+    calculatePaddingTop();
+
+    window.addEventListener("resize", calculatePaddingTop);
+    return () => window.removeEventListener("resize", calculatePaddingTop);
+  }, []);
+
   return (
-    <div className="mt-16 m-7 w-[192px] rounded-lg bg-kAppDarkNavy px-6 pb-5 pt-[100px] text-center relative">
+    <button
+      className="mt-16 mb-7 w-full md:w-[calc(33.3%-28px)] lg:w-[calc(20%-28px)] aspect-square rounded-lg bg-kAppDarkNavy px-6 pb-5 text-center relative"
+      style={{
+        paddingTop: paddingTop,
+      }}
+    >
       <img
-        className="aspect-square w-[132px] absolute -top-[50px] left-0 translate-x-1/4"
+        className="aspect-square w-4/6 absolute -top-[50px] left-0 translate-x-1/4"
         alt={title}
         src={img}
+        ref={imgRef}
       />
-      <p className="font-bold">{title}</p>
+      <p className="font-bold truncate">{title}</p>
       <p>$ {price}</p>
-      <p className="opacity-30">{qty} Bowls available</p>
-    </div>
+      <p className="opacity-30 truncate">{qty} Bowls available</p>
+    </button>
   );
 };
 
