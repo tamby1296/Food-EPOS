@@ -1,4 +1,5 @@
 import DeleteIcon from "@icons/trash.svg?react";
+import FieldInput from "./FieldInput";
 
 const OrderLine = () => {
   return (
@@ -19,13 +20,14 @@ const OrderLine = () => {
               <p className="text-xs opacity-55">$ 2.29</p>
             </div>
           </div>
-          <input className="font-bold text-center aspect-square h-full w-10 rounded-md" />
+          {/* <input className="font-bold text-center aspect-square h-full w-10 rounded-md" /> */}
+          <FieldInput className="font-bold [&>input]:text-center [&>input]:aspect-square [&>input]:w-10 [&>input]:rounded-md p-0" />
           <p className="ml-2 font-bold whitespace-nowrap">$ 4,56</p>
         </div>
         <div className="flex gap-2 items-center">
-          <input
-            className="pl-3 py-3 text-sm w-full h-10 rounded-md"
-            placeholder="Order Note..."
+          <FieldInput
+            placeholder="Order note..."
+            className="w-full pl-3 py-3 text-sm h-10 rounded-md"
           />
           <button className="ml-2 border border-kAppCoral p-3 rounded-md">
             <DeleteIcon className="fill-kAppCoral" />

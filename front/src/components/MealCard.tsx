@@ -38,7 +38,7 @@ const MealCard: React.FC<IMealCardProps> = ({ title, price, qty, img }) => {
       />
       <p className="font-bold truncate">{title}</p>
       <p>$ {price}</p>
-      <p className="opacity-30 truncate">{qty} Bowls available</p>
+      <p className="opacity-30 truncate">{qty} remaining</p>
     </button>
   );
 };

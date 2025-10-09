@@ -18,6 +18,7 @@ export default {
       kAppCoral: "#EA7C69",
       kAppSlate: "#2D303E",
       kAppLightGray: "#E0E6E9",
+      kAppLightGray2: "#252836",
     },
     extend: {
       fontFamily: {

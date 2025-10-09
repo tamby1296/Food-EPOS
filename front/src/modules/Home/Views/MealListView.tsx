@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import SearchIcon from "@icons/search.svg?react";
 import { useSearchParams } from "react-router";
 
 import MealCard from "@/components/MealCard";
@@ -6,10 +7,12 @@ import SelectBox from "@/components/SelectBox";
 import { getAllMeals } from "@/services/meals";
 import TabView from "@/components/TabView";
 
+import { formatDate } from "@/utils/Date";
+import FieldInput from "@/components/FieldInput";
+
 import { MealOptions } from "../Constants/Options";
 import { MealTypes } from "../Types/Meals";
 import { SEACH_PARAM_KEY } from "../Constants/SearchParams";
-import { formatDate } from "@/utils/Date";
 
 const MealList = () => {
   const [searchParams] = useSearchParams();
@@ -19,7 +22,7 @@ const MealList = () => {
   });
 
   return (
-    <div className="p-7">
+    <div className="py-7">
       <div className="w-full flex items-center justify-between">
         <h3 className="text-xl font-semibold">Choose Dishes</h3>
         <SelectBox options={MealOptions} />
@@ -83,9 +86,10 @@ const MealListView = () => {
           <h1 className="text-3xl font-semibold">Hero Title</h1>
           <h2>{formatDate(new Date(), "EEEE, dd MMMM yyyy")}</h2>
         </div>
-        <div>
-          <input />
-        </div>
+        <FieldInput
+          placeholder="Search for food, coffee, etc..."
+          icon={<SearchIcon />}
+        />
       </div>
       <TabView
         tabs={tabs}

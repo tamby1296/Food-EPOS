@@ -39,13 +39,14 @@
   --kAppCoral: #EA7C69;
   --kAppSlate: #2D303E;
   --kAppLightGray: #E0E6E9;
+  --kAppLightGray2: #252836;
 
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: var(--kAppSlate);
+  background-color: var(--kAppLightGray2);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
