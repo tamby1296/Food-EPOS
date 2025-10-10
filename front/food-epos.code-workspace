@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.comments.insertSpace": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never",
+      "source.fixAll.eslint": "explicit",
+    },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    ],
+    "eslint.format.enable": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "eamodio.gitlens",
+      "sibiraj-s.vscode-scss-formatter",
+    ],
+  },
+}
