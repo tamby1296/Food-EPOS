@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodEpos.API", "FoodEpos\FoodEpos.API.csproj", "{C9654E70-7549-43E3-AAB1-296CB06D41CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9654E70-7549-43E3-AAB1-296CB06D41CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9654E70-7549-43E3-AAB1-296CB06D41CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9654E70-7549-43E3-AAB1-296CB06D41CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9654E70-7549-43E3-AAB1-296CB06D41CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6085E0AC-4F27-46E9-BAC5-A2F9759443CC}
+	EndGlobalSection
+EndGlobal
