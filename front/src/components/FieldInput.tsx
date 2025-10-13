@@ -5,12 +5,14 @@ interface IFieldInputProps {
   placeholder?: string;
   className?: string;
   icon?: React.ReactNode;
+  value?: string;
 }
 
 const FieldInput: React.FC<IFieldInputProps> = ({
   placeholder,
   className,
   icon,
+  value,
 }) => {
   return (
     <div
@@ -22,6 +24,7 @@ const FieldInput: React.FC<IFieldInputProps> = ({
       {icon}
       <input
         placeholder={placeholder}
+        value={value}
         className="bg-kAppSlate text-kAppCoolGray w-full"
       />
     </div>

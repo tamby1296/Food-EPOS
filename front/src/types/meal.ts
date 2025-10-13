@@ -1,9 +1,9 @@
-interface IMeal {
+export interface IMeal {
+  id: string;
   name: string;
   price: number;
   qty: number;
   img: string;
-  id: string;
 }
 
 export type IMealsDTO = Array<IMeal>;
