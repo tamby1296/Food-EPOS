@@ -1,11 +1,10 @@
 import { cn } from "@/utils/Classname";
 import React from "react";
 
-interface IFieldInputProps {
+interface IFieldInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   className?: string;
   icon?: React.ReactNode;
-  value?: string;
 }
 
 const FieldInput: React.FC<IFieldInputProps> = ({
@@ -13,6 +12,7 @@ const FieldInput: React.FC<IFieldInputProps> = ({
   className,
   icon,
   value,
+  ...props
 }) => {
   return (
     <div
@@ -25,6 +25,7 @@ const FieldInput: React.FC<IFieldInputProps> = ({
       <input
         placeholder={placeholder}
         value={value}
+        {...props}
         className="bg-kAppSlate text-kAppCoolGray w-full"
       />
     </div>

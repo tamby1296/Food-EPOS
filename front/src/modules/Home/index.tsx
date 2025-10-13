@@ -15,7 +15,7 @@ const HomeScreen = () => {
   const hasOrders = useMemo(() => orders.length > 0, [orders]);
 
   return (
-    <div className={cn(!hasOrders ? "w-10/12 mx-auto" : "flex pr-[400px]")}>
+    <div className={cn("w-9/12", !hasOrders ? "mx-auto" : "flex pr-7")}>
       <MealListView />
       {hasOrders && <OrderDetails />}
     </div>

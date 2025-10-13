@@ -2,7 +2,10 @@ import DeleteIcon from "@icons/trash.svg?react";
 import FieldInput from "./FieldInput";
 import { FormatPrice } from "@/utils/Numbers";
 import { useAtom } from "jotai";
-import { removeFromOrderAtom } from "@/modules/Home/Store/Order.atom";
+import {
+  changeQtyAtom,
+  removeFromOrderAtom,
+} from "@/modules/Home/Store/Order.atom";
 
 interface IOrderLineProps {
   id: string;
@@ -13,9 +16,20 @@ interface IOrderLineProps {
 
 const OrderLine: React.FC<IOrderLineProps> = ({ id, name, price, qty }) => {
   const [, removeFromOrder] = useAtom(removeFromOrderAtom);
+  const [, changeQty] = useAtom(changeQtyAtom);
 
   const HandleRemoveClick = (): void => {
     removeFromOrder(id);
+  };
+
+  const HandleQtyChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const newQty = Number.parseInt(event.target.value);
+    changeQty({
+      id,
+      qty: isNaN(newQty) ? 1 : newQty,
+    });
   };
 
   return (
@@ -37,6 +51,7 @@ const OrderLine: React.FC<IOrderLineProps> = ({ id, name, price, qty }) => {
           <FieldInput
             className="font-bold [&>input]:text-center [&>input]:aspect-square [&>input]:w-10 [&>input]:rounded-md p-0"
             value={qty.toString()}
+            onChange={HandleQtyChange}
           />
           <p className="ml-2 font-bold whitespace-nowrap">
             $ {FormatPrice(price * qty)}

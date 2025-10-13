@@ -14,7 +14,7 @@ const OrderDetails = () => {
   }, [orders]);
 
   return (
-    <div className="fixed right-0 h-full p-6 pb-[200px] w-[400px] bg-kAppDarkNavy flex flex-col items-start">
+    <div className="fixed right-0 h-full p-6 pb-[200px] w-3/12 bg-kAppDarkNavy flex flex-col items-start">
       <h3 className="text-xl font-bold mb-6">Order #34562</h3>
       <div className="mb-6">
         <RadioButton options={MealOptions} />
