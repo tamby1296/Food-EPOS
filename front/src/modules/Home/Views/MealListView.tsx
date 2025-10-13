@@ -18,7 +18,8 @@ const MealList = () => {
   const [searchParams] = useSearchParams();
   const { data, isLoading, isError } = useQuery({
     queryKey: ["meal/list", searchParams.get(SEACH_PARAM_KEY)],
-    queryFn: async () => getAllMeals(),
+    queryFn: async () =>
+      getAllMeals(Number.parseInt(searchParams.get(SEACH_PARAM_KEY) ?? "-1")),
   });
 
   return (
@@ -29,8 +30,8 @@ const MealList = () => {
       </div>
       {!isLoading && !isError && (
         <div className="flex flex-wrap gap-7 justify-start">
-          {data?.body?.meals.map((meal, i) => (
-            <MealCard key={i} {...meal} />
+          {data?.body?.map((meal, i) => (
+            <MealCard key={i} title={meal.name} {...meal} />
           ))}
         </div>
       )}
@@ -49,7 +50,7 @@ const MealListView = () => {
 
   if (tabs.length < 1) return;
   return (
-    <div className="p-7">
+    <div className="p-7 w-full">
       <div className="w-full flex justify-between items-center mb-10">
         <div>
           <h1 className="text-3xl font-semibold">Hero Title</h1>

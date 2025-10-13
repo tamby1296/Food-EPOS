@@ -1,14 +1,12 @@
 interface IMeal {
-  title: string;
+  name: string;
   price: number;
   qty: number;
   img: string;
   id: string;
 }
 
-export interface IMealsDTO {
-  meals: Array<IMeal>;
-}
+export type IMealsDTO = Array<IMeal>;
 
 interface IMealCategory {
   id: number;

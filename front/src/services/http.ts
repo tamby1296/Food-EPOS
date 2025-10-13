@@ -9,7 +9,7 @@ class HttpRequest {
 
     return {
       status: response.status,
-      Headers: response.headers,
+      headers: response.headers,
       body: data,
     };
   }

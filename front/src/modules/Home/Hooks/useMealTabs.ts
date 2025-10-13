@@ -8,7 +8,7 @@ interface IUseMealTabs {
 }
 
 const useMealTabs = (): IUseMealTabs => {
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["meal/category"],
     queryFn: async () => getMealCategories(),
   });

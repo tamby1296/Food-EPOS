@@ -1,3 +1,4 @@
+import { FormatPrice } from "@/utils/Numbers";
 import React, { useEffect, useRef, useState } from "react";
 
 interface IMealCardProps {
@@ -37,8 +38,8 @@ const MealCard: React.FC<IMealCardProps> = ({ title, price, qty, img }) => {
         ref={imgRef}
       />
       <p className="font-bold truncate">{title}</p>
-      <p>$ {price}</p>
-      <p className="opacity-30 truncate">{qty} remaining</p>
+      <p>$ {FormatPrice(price)}</p>
+      {qty && <p className="opacity-30 truncate">{qty} remaining</p>}
     </button>
   );
 };
