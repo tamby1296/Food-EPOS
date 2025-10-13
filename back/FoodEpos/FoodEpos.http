@@ -1,6 +1,6 @@
-@FoodEpos_HostAddress = http://localhost:5287
+@BASE_URL = http://localhost:5287/api
 
-GET {{FoodEpos_HostAddress}}/weatherforecast/
+GET {{BASE_URL}}/Meal/
 Accept: application/json
 
 ###
