@@ -1,5 +1,5 @@
 const DiscountScreen = () => {
-  return <div>DiscountScreen</div>;
+  return <div className="p-7">DiscountScreen</div>;
 };
 
 export { DiscountScreen };

@@ -1,5 +1,5 @@
 const NotificationScreen = () => {
-  return <div>NotificationScreen</div>;
+  return <div className="p-7">NotificationScreen</div>;
 };
 
 export { NotificationScreen };

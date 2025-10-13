@@ -1,5 +1,5 @@
 const SettingsScreen = () => {
-  return <div>SettingsScreen</div>;
+  return <div className="p-7">SettingsScreen</div>;
 };
 
 export { SettingsScreen };
