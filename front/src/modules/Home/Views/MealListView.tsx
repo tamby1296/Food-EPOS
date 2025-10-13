@@ -11,8 +11,8 @@ import { formatDate } from "@/utils/Date";
 import FieldInput from "@/components/FieldInput";
 
 import { MealOptions } from "../Constants/Options";
-import { MealTypes } from "../Types/Meals";
 import { SEACH_PARAM_KEY } from "../Constants/SearchParams";
+import useMealTabs from "../Hooks/useMealTabs";
 
 const MealList = () => {
   const [searchParams] = useSearchParams();
@@ -38,47 +38,16 @@ const MealList = () => {
   );
 };
 
-const tabs = [
-  {
-    trigger: "Hot Dishes",
-    value: MealTypes.HOT,
-    content: <MealList />,
-  },
-  {
-    trigger: "Cold Dishes",
-    value: MealTypes.COLD,
-    content: <MealList />,
-  },
-  {
-    trigger: "Soup",
-    value: MealTypes.SOUP,
-    content: <MealList />,
-  },
-  {
-    trigger: "Grill",
-    value: MealTypes.GRILL,
-    content: <MealList />,
-  },
-  {
-    trigger: "Appetizer",
-    value: MealTypes.APPETIZER,
-    content: <MealList />,
-  },
-  {
-    trigger: "Dessert",
-    value: MealTypes.DESSERT,
-    content: <MealList />,
-  },
-];
-
 const MealListView = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { tabs } = useMealTabs();
 
   const handleTabChange = (tab: string) => {
     searchParams.set(SEACH_PARAM_KEY, tab);
     setSearchParams(searchParams);
   };
 
+  if (tabs.length < 1) return;
   return (
     <div className="p-7">
       <div className="w-full flex justify-between items-center mb-10">
@@ -91,6 +60,7 @@ const MealListView = () => {
           icon={<SearchIcon />}
         />
       </div>
+
       <TabView
         tabs={tabs}
         defaultTab={searchParams.get(SEACH_PARAM_KEY)}

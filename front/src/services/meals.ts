@@ -1,6 +1,8 @@
-import { IMealsDTO } from "@/types/meal";
+import { IMealCategoriesDTO, IMealsDTO } from "@/types/meal";
 import { EposRequests } from "./http";
 
-export const getAllMeals = () => {
-  return EposRequests.get<IMealsDTO>("/mocks/getMeals.json");
-};
+export const getAllMeals = () =>
+  EposRequests.get<IMealsDTO>("/mocks/getMeals.json");
+
+export const getMealCategories = () =>
+  EposRequests.get<IMealCategoriesDTO>("/mocks/getMealCategories.json");

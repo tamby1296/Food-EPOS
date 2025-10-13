@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Root, List, Trigger, Content } from "@radix-ui/react-tabs";
 
-interface ITabs {
+export interface ITabs {
   trigger: string;
   value: string;
   content?: React.ReactNode;
