@@ -3,24 +3,26 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<FoodEposDbContext>(opt => opt.UseSqlServer(
-    builder.Configuration.GetConnectionString("FoodEposConnectionString")
-));
+builder.Services.AddDbContext<FoodEposDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("FoodEposConnectionString"))
+);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<FoodEposDbContext>();
+    DbInitializer.Initialize(dbContext);
+}
+
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

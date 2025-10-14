@@ -6,7 +6,7 @@ using System;
 
 namespace FoodEpos.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/meal")]
     [ApiController]
     public class MealController : ControllerBase
     {
@@ -18,9 +18,23 @@ namespace FoodEpos.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetMeals()
+        public async Task<IActionResult> GetMeals([FromQuery] int? categoryId)
         {
-            return Ok(await _context.Meals.ToListAsync());
+            var query = _context.Meals.AsQueryable();
+
+            if (categoryId.HasValue)
+            {
+                query = query.Where(m => m.MealCategoryId == categoryId.Value);
+            }
+
+            var meals = await query.ToListAsync();
+            return Ok(meals);
+        }
+
+        [HttpGet("categories")]
+        public async Task<IActionResult> GetMealCategories()
+        {
+            return Ok(await _context.MealCategories.ToListAsync());
         }
     }
 }

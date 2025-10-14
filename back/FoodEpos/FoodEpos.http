@@ -1,6 +1,10 @@
 @BASE_URL = http://localhost:5287/api
 
-GET {{BASE_URL}}/Meal/
+GET {{BASE_URL}}/meal
+Accept: application/json
+
+###
+GET {{BASE_URL}}/meal/categories
 Accept: application/json
 
 ###
