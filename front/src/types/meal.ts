@@ -3,7 +3,7 @@ export interface IMeal {
   name: string;
   price: number;
   qty: number;
-  img: string;
+  imgURL: string;
 }
 
 export type IMealsDTO = Array<IMeal>;

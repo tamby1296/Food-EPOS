@@ -20,13 +20,15 @@ const OrderDetails = () => {
         <RadioButton options={MealOptions} />
       </div>
       <div className="w-full flex font-bold mb-2 gap-2">
-        <p className="flex-grow">Item</p>
-        <p className="basis-[50px]">Qty</p>
-        <p className="basis-[50px]">Price</p>
+        <div className="w-10/12 flex">
+          <p className="w-full">Item</p>
+          <p className="w-10 shrink-0">Qty</p>
+        </div>
+        <p className="w-2/12 text-center">Price</p>
       </div>
-      <div className="w-full flex-1 pr-2 overflow-auto border-t border-b">
+      <div className="w-full flex-1 overflow-auto border-t border-b">
         {orders.map((o) => (
-          <OrderLine key={o.id} {...o} />
+          <OrderLine key={o.id} img={o.imgURL} {...o} />
         ))}
       </div>
       <div className="absolute w-[calc(100%-3rem)] box-content left-0 bottom-0 mx-6 mb-6">
@@ -38,7 +40,7 @@ const OrderDetails = () => {
           <p>Sub total</p>
           <p>$ {FormatPrice(orderTotal)}</p>
         </div>
-        <button className="bg-kAppCoral w-full font-bold text-sm rounded-md p-3">
+        <button className="bg-kAppCoral w-full font-bold text-sm rounded-md p-3 hover:bg-kAppRed">
           Continue to Payment
         </button>
       </div>

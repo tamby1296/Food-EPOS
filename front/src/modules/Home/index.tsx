@@ -29,7 +29,7 @@ export function Component() {
   const { tabs } = useMealTabs();
 
   useEffect(() => {
-    if (!searchParams.get(SEACH_PARAM_KEY)) {
+    if (!searchParams.get(SEACH_PARAM_KEY) && tabs.length > 0) {
       searchParams.set(SEACH_PARAM_KEY, tabs[0].value);
       setSearchParams(searchParams);
     }

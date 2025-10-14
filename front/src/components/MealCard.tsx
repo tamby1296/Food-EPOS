@@ -33,7 +33,7 @@ const MealCard: React.FC<IMealCardProps> = ({ id, title, price, qty, img }) => {
       id,
       name: title ?? "",
       price: price ?? 0,
-      img: img ?? "",
+      imgURL: img ?? "",
       qty: 1,
     });
   };

@@ -16,6 +16,7 @@ export default {
       kAppCoolGray: "#ABBBC2",
       kAppCharcoal: "#393C49",
       kAppCoral: "#EA7C69",
+      kAppRed: "#FF7CA3",
       kAppSlate: "#2D303E",
       kAppLightGray: "#E0E6E9",
       kAppLightGray2: "#252836",
