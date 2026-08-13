@@ -1,6 +1,5 @@
-import { useAtomValue } from "jotai";
 import { useSearchParams } from "react-router";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 
 import { cn } from "@/utils/Classname";
 
@@ -8,16 +7,12 @@ import MealListView from "./Views/MealListView";
 import OrderDetails from "./Views/OrderDetails";
 import { SEACH_PARAM_KEY } from "./Constants/SearchParams";
 import useMealTabs from "./Hooks/useMealTabs";
-import { OrderAtom } from "./Store/Order.atom";
 
 const HomeScreen = () => {
-  const orders = useAtomValue(OrderAtom);
-  const hasOrders = useMemo(() => orders.length > 0, [orders]);
-
   return (
-    <div className={cn("w-9/12", !hasOrders ? "mx-auto" : "flex pr-7")}>
+    <div className={cn("w-9/12 flex pr-7")}>
       <MealListView />
-      {hasOrders && <OrderDetails />}
+      <OrderDetails />
     </div>
   );
 };

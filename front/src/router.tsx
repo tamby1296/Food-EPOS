@@ -9,26 +9,25 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: "/",
         lazy: () => import("@modules/Home"),
       },
       {
-        index: true,
+        path: "/checkout",
+        lazy: () => import("@modules/Checkout"),
+      },
+      {
         path: "/discounts",
         lazy: () => import("@modules/Discounts"),
       },
       {
-        index: true,
         path: "/dashboard",
         lazy: () => import("@modules/Dashboard"),
       },
       {
-        index: true,
         path: "/notifications",
         lazy: () => import("@modules/Notifications"),
       },
       {
-        index: true,
         path: "/settings",
         lazy: () => import("@modules/Settings"),
       },

@@ -6,6 +6,7 @@ import {
   changeQtyAtom,
   removeFromOrderAtom,
 } from "@/modules/Home/Store/Order.atom";
+import { useCallback } from "react";
 
 interface IOrderLineProps {
   id: string;
@@ -29,15 +30,16 @@ const OrderLine: React.FC<IOrderLineProps> = ({
     removeFromOrder(id);
   };
 
-  const HandleQtyChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
-    const newQty = Number.parseInt(event.target.value);
-    changeQty({
-      id,
-      qty: isNaN(newQty) ? 1 : newQty,
-    });
-  };
+  const HandleQtyChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>): void => {
+      const newQty = Number.parseInt(event.target.value);
+      changeQty({
+        id,
+        qty: isNaN(newQty) ? 1 : newQty,
+      });
+    },
+    [changeQty, id]
+  );
 
   return (
     <div className="my-6 w-full">

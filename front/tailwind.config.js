@@ -11,15 +11,17 @@ export default {
       },
     },
     colors: {
+      // constant across themes
       kAppWhite: "#FFFFFF",
-      kAppDarkNavy: "#1F1D2B",
-      kAppCoolGray: "#ABBBC2",
-      kAppCharcoal: "#393C49",
       kAppCoral: "#EA7C69",
       kAppRed: "#FF7CA3",
-      kAppSlate: "#2D303E",
-      kAppLightGray: "#E0E6E9",
-      kAppLightGray2: "#252836",
+      // theme-reactive, see :root / :root[data-mode="light"] in index.css
+      kAppDarkNavy: "var(--kAppDarkNavy)",
+      kAppCoolGray: "var(--kAppCoolGray)",
+      kAppCharcoal: "var(--kAppCharcoal)",
+      kAppSlate: "var(--kAppSlate)",
+      kAppLightGray: "var(--kAppLightGray)",
+      kAppLightGray2: "var(--kAppLightGray2)",
     },
     extend: {
       fontFamily: {

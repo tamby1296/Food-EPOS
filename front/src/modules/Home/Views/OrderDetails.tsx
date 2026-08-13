@@ -5,13 +5,19 @@ import { MealOptions } from "../Constants/Options";
 import { useAtomValue } from "jotai";
 import { OrderAtom } from "../Store/Order.atom";
 import { useMemo } from "react";
+import { useNavigate } from "react-router";
 import { FormatPrice } from "@/utils/Numbers";
 
 const OrderDetails = () => {
+  const navigate = useNavigate();
   const orders = useAtomValue(OrderAtom);
   const orderTotal = useMemo(() => {
     return orders.reduce((acc, { price, qty }) => acc + price * qty, 0);
   }, [orders]);
+
+  const HandleContinueClick = (): void => {
+    navigate("/checkout");
+  };
 
   return (
     <div className="fixed right-0 h-full p-6 pb-[200px] w-3/12 bg-kAppDarkNavy flex flex-col items-start">
@@ -34,13 +40,17 @@ const OrderDetails = () => {
       <div className="absolute w-[calc(100%-3rem)] box-content left-0 bottom-0 mx-6 mb-6">
         <div className="flex justify-between items-center mb-4">
           <p>Discount</p>
-          <p>$0</p>
+          <p>$ {FormatPrice(0)}</p>
         </div>
         <div className="flex justify-between items-center mb-10">
           <p>Sub total</p>
           <p>$ {FormatPrice(orderTotal)}</p>
         </div>
-        <button className="bg-kAppCoral w-full font-bold text-sm rounded-md p-3 hover:bg-kAppRed">
+        <button
+          className="bg-kAppCoral w-full font-bold text-sm rounded-md p-3 hover:bg-kAppRed disabled:bg-kAppCoolGray"
+          disabled={orders.length < 1}
+          onClick={HandleContinueClick}
+        >
           Continue to Payment
         </button>
       </div>

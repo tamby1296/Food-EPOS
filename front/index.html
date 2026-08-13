@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food - EPOS</title>
+    <script>
+      (function () {
+        var stored = window.localStorage.getItem("food-epos-theme");
+        if (stored === "light") document.documentElement.dataset.mode = "light";
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

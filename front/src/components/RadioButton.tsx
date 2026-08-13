@@ -7,6 +7,7 @@ interface IRadioButtonProps {
     label: string;
     value: string;
   }>;
+  onValueChange?: (value: string) => void;
 }
 
 const RadioItemVariants = cva("text-sm font-bold px-3 py-2 rounded-md", {
@@ -18,13 +19,19 @@ const RadioItemVariants = cva("text-sm font-bold px-3 py-2 rounded-md", {
   },
 });
 
-const RadioButton: React.FC<IRadioButtonProps> = ({ options }) => {
+const RadioButton: React.FC<IRadioButtonProps> = ({
+  options,
+  onValueChange,
+}) => {
   const [value, setValue] = useState(options[0].value);
   return (
     <Root
       className="w-full flex gap-2"
       defaultValue={value}
-      onValueChange={(v) => setValue(v)}
+      onValueChange={(v) => {
+        setValue(v);
+        onValueChange?.(v);
+      }}
     >
       {options.map((option, i) => (
         <Item

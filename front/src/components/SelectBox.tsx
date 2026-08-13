@@ -30,13 +30,16 @@ const SelectBox: React.FC<ISelectBoxProps> = ({ options }) => {
         <Value placeholder="Select an option" />
       </Trigger>
       <Portal>
-        <Content className="rounded-md bg-kAppDarkNavy border border-kAppCharcoal p-6">
+        <Content
+          className="rounded-md bg-kAppDarkNavy border border-kAppCharcoal px-3 py-2 "
+          align="center"
+        >
           <Viewport>
             {options.map((option, i) => (
               <Item
                 key={i}
                 value={option.value}
-                className="hover:outline-none focus:outline-none"
+                className="hover:outline-none focus:outline-none data-[highlighted]:bg-kAppCoral p-1 rounded-sm"
               >
                 <ItemText>{option.label}</ItemText>
               </Item>

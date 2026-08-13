@@ -8,6 +8,7 @@ import DashIcon from "@icons/dashboard.svg?react";
 import NotifIcon from "@icons/notification.svg?react";
 import SettingIcon from "@icons/setting.svg?react";
 import HomeIcon from "@icons/home.svg?react";
+import Toggle from "./Toggle";
 
 const NavigationVariance = cva("p-6 rounded-lg", {
   variants: {
@@ -64,6 +65,7 @@ const Navigation = () => {
           <SettingIcon />
         </Link>
       </div>
+      <Toggle />
       <button>
         <LogoutIcon />
       </button>
