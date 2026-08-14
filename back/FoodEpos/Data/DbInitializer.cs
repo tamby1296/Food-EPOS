@@ -1,4 +1,5 @@
 ﻿using FoodEpos.API.Model;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodEpos.API.Data
@@ -43,6 +44,21 @@ namespace FoodEpos.API.Data
                 };
 
                 context.Meals.AddRange(meals);
+                context.SaveChanges();
+            }
+
+            if (!context.Users.Any())
+            {
+                var hasher = new PasswordHasher<User>();
+                var admin = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Username = "admin",
+                    CreatedAt = DateTimeOffset.UtcNow
+                };
+                admin.PasswordHash = hasher.HashPassword(admin, "admin");
+
+                context.Users.Add(admin);
                 context.SaveChanges();
             }
         }

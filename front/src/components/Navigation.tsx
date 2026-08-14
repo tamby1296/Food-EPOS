@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import { useSetAtom } from "jotai";
 
 import LogoIcon from "@icons/logo.svg?react";
 import LogoutIcon from "@icons/log_out.svg?react";
@@ -8,7 +9,9 @@ import DashIcon from "@icons/dashboard.svg?react";
 import NotifIcon from "@icons/notification.svg?react";
 import SettingIcon from "@icons/setting.svg?react";
 import HomeIcon from "@icons/home.svg?react";
+import OrdersIcon from "@icons/orders.svg?react";
 import Toggle from "./Toggle";
+import { authTokenAtom } from "@/store/auth.atom";
 
 const NavigationVariance = cva("p-6 rounded-lg", {
   variants: {
@@ -24,6 +27,14 @@ const NavigationVariance = cva("p-6 rounded-lg", {
 
 const Navigation = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const setToken = useSetAtom(authTokenAtom);
+
+  const HandleLogoutClick = (): void => {
+    setToken(null);
+    navigate("/login", { replace: true });
+  };
+
   return (
     <div className="bg-kAppDarkNavy h-[100vh] w-[100px] fixed left-0 flex flex-col justify-between items-center py-6">
       <LogoIcon />
@@ -41,6 +52,14 @@ const Navigation = () => {
           })}
         >
           <DiscountIcon />
+        </Link>
+        <Link
+          to="/orders"
+          className={NavigationVariance({
+            isActive: pathname === "/orders",
+          })}
+        >
+          <OrdersIcon />
         </Link>
         <Link
           to="/dashboard"
@@ -66,7 +85,7 @@ const Navigation = () => {
         </Link>
       </div>
       <Toggle />
-      <button>
+      <button onClick={HandleLogoutClick}>
         <LogoutIcon />
       </button>
     </div>

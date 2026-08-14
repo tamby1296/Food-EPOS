@@ -1,6 +1,5 @@
-import { addToOrderAtom } from "@/modules/Home/Store/Order.atom";
+import { useCart } from "@/modules/Home/Hooks/useCart";
 import { FormatPrice } from "@/utils/Numbers";
-import { useAtom } from "jotai";
 import React, { useEffect, useRef, useState } from "react";
 
 interface IMealCardProps {
@@ -13,7 +12,7 @@ interface IMealCardProps {
 
 const MealCard: React.FC<IMealCardProps> = ({ id, title, price, qty, img }) => {
   const [paddingTop, setPaddingTop] = useState(0);
-  const [, addToOrder] = useAtom(addToOrderAtom);
+  const { addItem } = useCart();
   const imgRef = useRef(null);
 
   const calculatePaddingTop = () => {
@@ -29,13 +28,7 @@ const MealCard: React.FC<IMealCardProps> = ({ id, title, price, qty, img }) => {
   }, []);
 
   const HandleMealClick = (): void => {
-    addToOrder({
-      id,
-      name: title ?? "",
-      price: price ?? 0,
-      imgURL: img ?? "",
-      qty: 1,
-    });
+    addItem({ mealId: id, quantity: 1 });
   };
 
   return (

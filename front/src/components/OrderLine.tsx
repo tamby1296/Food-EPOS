@@ -1,44 +1,39 @@
 import DeleteIcon from "@icons/trash.svg?react";
 import FieldInput from "./FieldInput";
 import { FormatPrice } from "@/utils/Numbers";
-import { useAtom } from "jotai";
-import {
-  changeQtyAtom,
-  removeFromOrderAtom,
-} from "@/modules/Home/Store/Order.atom";
+import { useCart } from "@/modules/Home/Hooks/useCart";
 import { useCallback } from "react";
 
 interface IOrderLineProps {
-  id: string;
+  itemId: string;
   name: string;
-  img: string;
+  img: string | null;
   price: number;
   qty: number;
 }
 
 const OrderLine: React.FC<IOrderLineProps> = ({
-  id,
+  itemId,
   name,
   img,
   price,
   qty,
 }) => {
-  const [, removeFromOrder] = useAtom(removeFromOrderAtom);
-  const [, changeQty] = useAtom(changeQtyAtom);
+  const { updateItem, removeItem } = useCart();
 
   const HandleRemoveClick = (): void => {
-    removeFromOrder(id);
+    removeItem(itemId);
   };
 
   const HandleQtyChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>): void => {
       const newQty = Number.parseInt(event.target.value);
-      changeQty({
-        id,
-        qty: isNaN(newQty) ? 1 : newQty,
+      updateItem({
+        itemId,
+        quantity: isNaN(newQty) || newQty <= 0 ? 1 : newQty,
       });
     },
-    [changeQty, id]
+    [updateItem, itemId]
   );
 
   return (
@@ -47,7 +42,7 @@ const OrderLine: React.FC<IOrderLineProps> = ({
         <div className="flex gap-2 overflow-hidden justify-center items-center">
           <div className="w-10/12 flex">
             <div className="flex gap-2 w-full">
-              <img alt={name} src={img} width={40} height={40} />
+              <img alt={name} src={img ?? ""} width={40} height={40} />
               <div>
                 <p className="mb-1 text-sm font-bold truncate">{name}</p>
                 <p className="text-xs opacity-55">$ {FormatPrice(price)}</p>
