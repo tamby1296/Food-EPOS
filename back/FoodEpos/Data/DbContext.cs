@@ -41,6 +41,11 @@ namespace FoodEpos.API.Data
             modelBuilder.Entity<Meal>()
                 .Property(m => m.Price)
                 .IsRequired();
+
+            //modelBuilder.Entity<OrderItems>()
+            //    .HasOne<Meal>()
+            //    .WithMany()
+            //    .HasForeignKey(oi => oi.MealId);
         }
     }
 }

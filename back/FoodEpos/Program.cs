@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<FoodEposDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("FoodEposConnectionString"))
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("FoodEposConnectionString"))
 );
 
 var app = builder.Build();

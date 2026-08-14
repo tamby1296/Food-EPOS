@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "food-epos-frontend",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["--cwd", "front", "dev"],
+      "port": 5173,
+      "autoPort": true
+    }
+  ]
+}
