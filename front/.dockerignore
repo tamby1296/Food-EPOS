@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+.git
+.gitignore
+.dockerignore
+Dockerfile
+nginx.conf
+
+.vscode
+.idea
+
+*.tsbuildinfo
+README.md
